@@ -3,46 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gambar di Tengah</title>
+    <title>Halaman Satu Foto</title>
     <style>
-        body {
+        /* CSS Reset sederhana */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        
-        .container {
-            text-align: center;
+            margin: 0;
             padding: 20px;
         }
-        
-        .centered-image {
-            max-width: 300px;
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .image-container {
+            width: 100%;
+            max-height: 70vh;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: block;
+            transition: transform 0.5s ease;
+            object-fit: cover;
         }
-        
+
+        .card:hover .image-container img {
+            transform: scale(1.03);
+        }
+
         .caption {
-            margin-top: 15px;
+            padding: 25px;
+            text-align: center;
+            background: white;
+        }
+
+        .caption h2 {
             color: #333;
-            font-size: 14px;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .caption p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .caption .date {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* Fallback jika gambar tidak bisa dimuat */
+        .image-container img::before {
+            content: "Maaf, gambar tidak dapat dimuat";
+            display: block;
+            text-align: center;
+            padding: 50px;
+            color: #999;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Ganti URL gambar dengan gambar yang Anda inginkan -->
-        <img src="channels4_profile.jpg" 
-             alt="Pemandangan alam" 
-             class="centered-image">
-        <p class="caption">foto profile sosok karbit asli</p>
+        <div class="card">
+            <div class="image-container">
+                <!-- 
+                    GANTI URL DI BAWAH INI DENGAN URL FOTO ANDA 
+                    Contoh: 
+                    - URL online: https://example.com/gambar.jpg
+                    - File lokal: images/foto-saya.jpg (pastikan file ada di folder yang sama)
+                -->
+                <img 
+                    src="Screenshot 2026-03-07 003718.png" 
+                    alt="WEL WEL WEL WEL, apa yg kau lakukan itu bung"
+                    title="WEL WEL WEL"
+                    loading="lazy"
+                >
+            </div>
+            <div class="caption">
+                <h2>WEL WEL WEL WEL, apa yg kau lakukan itu bung</h2>
+                <p>
+                    diduga kalah taruhan beliau ara ara dengan suka rela
+                </p>
+                <span class="date">Diunggah pada: 10 Maret 2026</span>
+            </div>
+        </div>
     </div>
 </body>
 </html>
